@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
 
-defaults:
+jobs:
   build-and-push-docker-image:
     name: Build Docker image and push to repositories
     runs-on: ubuntu-latest
@@ -28,10 +28,8 @@ defaults:
         with:
           # relative path to the place where source code with Dockerfile is located
           context: ./
-          # Note: tags has to be all lower-case
           tags: |
-            oskardudycz/eventsourcing.nodejs.simple:latest
-            ghcr.io/oskardudycz/eventsourcing.nodejs/simple:latest
+            aidanr/jellyfin-rar2fs:latest
           # build on feature branches, push only on main branch
           push: ${{ github.ref == 'refs/heads/main' }}
 
