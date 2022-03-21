@@ -1,0 +1,5 @@
+#!/usr/bin/with-contenv bash
+
+mkdir -p /unrar
+chown ${PUID}:${PGID} /unrar
+/usr/local/bin/rar2fs -o allow_other -o umask=000 --exclude=.wd_tv --seek-length=1 /rar /unrar
